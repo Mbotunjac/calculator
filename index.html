@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <title>Calculator</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap" rel="stylesheet">
+  <script src="script.js" async></script>
+</head>
+<body>
+  <div class="wraper"></div>
+    <header>
+      <div class="title">calc</div>
+      <div class="toggle">theme</div>
+    </header>
+
+    <div class="calculator">
+
+      <div class="display"></div>
+
+      <div class="keys">
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button data-action="delete">DEL</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button class="key--operator" data-action="add">+</button>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button class="key--operator" data-action="subtract">-</button>
+        <button data-action="decimal">.</button>
+        <button>0</button>
+        <button class="key--operator" data-action="divide">÷</button>
+        <button class="key--operator" data-action="multiply">&times;</button>
+        <button data-action="clear">RESET</button>
+        <button class="key--equal" data-action="calculate">=</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
