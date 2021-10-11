@@ -51,8 +51,66 @@
 
 body {
     font-size: 32px;
+    font-family: "Spartan", sans-serif;
+    font-weight: 700;
+}
+
+.head {
+    position: relative;
+    margin-top: 96px;
+    max-height: 44px;
+    display: flex;
+    justify-content: space-evenly;
+    line-height: 36px;
+    letter-spacing: -0.5333333611488342px;
+    text-align: center;
+}
+
+.toggle {
+    font-size: 12px;
+    line-height: 13px;
+    letter-spacing: 10px;
+    text-align: center;
+}
+
+.slider {
+    max-width: 71px; 
+  /*  background: #04AA6D;  */
+    
+}
+
+.slid {
+    max-width: 100%;
+    height: 26px;
+    -webkit-appearance: none;
+    border-radius: 13px;
+    outline: none;
+  /*  background: violet;  */
+}
+
+.slid::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+  /*  background: red;  */
+    cursor: pointer;
+  }
+
+.wraper {
+    max-width: 540px;
+    position: relative;
+    margin: auto;
+}
+
+.display {
+    display: block;
+    height: 128px;
+    border-radius: 10px;
 }
 
 .keys {
     display: grid;
 }
+
