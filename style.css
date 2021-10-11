@@ -14,10 +14,14 @@
     --thm1-bg-screen: hsl(224, 36%, 15%);
     --thm1-key-red: hsl(6, 63%, 50%);
     --thm1-key-red-sh: hsl(6, 70%, 34%);
+    --thm1-key-red-h: hsla(6, 93%, 67%, 1);
     --thm1-key-blue: hsl(225, 21%, 49%);
     --thm1-key-blue-sh: hsl(224, 28%, 35%);
+    --thm1-key-blue-h: hsla(224, 51%, 76%, 1);
     --thm1-key-orange: hsl(30, 25%, 89%);
     --thm1-key-orange-sh: hsl(28, 16%, 65%);
+    --thm1-key-orange-h: hsla(31, 100%, 100%, 1);
+
     --thm1-txt-blue: hsl(221, 14%, 31%);
     --thm1-txt-white: hsl(0, 0, 100%);
 
@@ -60,7 +64,7 @@ body {
     margin-top: 96px;
     max-height: 44px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     line-height: 36px;
     letter-spacing: -0.5333333611488342px;
     text-align: center;
@@ -85,7 +89,7 @@ body {
     -webkit-appearance: none;
     border-radius: 13px;
     outline: none;
-  /*  background: violet;  */
+    background: violet;  
 }
 
 .slid::-webkit-slider-thumb {
@@ -94,7 +98,7 @@ body {
     width: 18px;
     height: 18px;
     border-radius: 50%;
-  /*  background: red;  */
+    background: red;  
     cursor: pointer;
   }
 
@@ -105,12 +109,60 @@ body {
 }
 
 .display {
-    display: block;
     height: 128px;
     border-radius: 10px;
+    width: 100%;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 54px;
+    border: none;
+    background-color: var(--thm1-bg-screen);
+    color: var(--thm1-txt-white);
+    text-align: right;
+    letter-spacing: -0.8px;
+    margin-top: 32px;
+    margin-bottom: 24px;
 }
 
 .keys {
+    background: var(--thm1-bg-toggle);
+    height: 100%;
     display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-row-gap: 5%;
+    grid-column-gap: 4%;
+}
+
+button {
+    height: 64px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--thm1-key-orange);
+    font-size: 32px;
+    line-height: 36px;
+    box-shadow: inset 0px -4px 0px var(--thm1-key-orange-sh);
+    letter-spacing: -0.5333333611488342px;
+}
+
+button:hover {
+    background-color: var(--thm1-key-orange-h);
+}
+
+button.key--clearing {
+    background-color: var(--thm1-key-blue);
+    box-shadow: inset 0px -4px 0px var(--thm1-key-blue-sh);
+}
+
+button.key--clearing:hover {
+    background-color: var(--thm1-key-blue-h);
+}
+
+button.key--equal {
+    background-color: var(--thm1-key-red);
+    box-shadow: inset 0px -4px 0px var(--thm1-key-red-sh);
+}
+
+button.key--equal:hover {
+    background-color: var(--thm1-key-red-h);
 }
 

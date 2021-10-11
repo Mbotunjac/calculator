@@ -2,10 +2,16 @@
 const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
 const calculator = document.querySelector(`.calculator`)
 const keys = calculator.querySelector(`.keys`)
+//slider 
+const slid = document.getElementById("myRange");
 
 
+
+//key
 const key = e.target
 const action = key.dataset.action
+
+
 
 //key listener
 keys.addEventListener(`clik`, e => {
@@ -17,6 +23,8 @@ keys.addEventListener(`clik`, e => {
 if (!action) {
     console.log('number key!')
   }
+
+
 
 
   /*
