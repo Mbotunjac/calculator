@@ -27,6 +27,46 @@ if (!action) {
 
 
 
+  let themeMode = localStorage.getItem('theme')
+
+  //create a div for the checkmark
+  const checkmark = document.createElement('div')
+
+
+  // if no theme has previously been saved in localStorage then use theme-1
+  // else set the last saved theme
+  if (!themeMode) {
+        const targetElement = document.querySelector("[data-area-theme='1']")
+        targetElement.appendChild(checkmark).setAttribute('id','checkmark')
+  }
+
+  else {
+        const targetElement = document.querySelector("[data-area-theme='" + themeMode + "']")
+        targetElement.appendChild(checkmark).setAttribute('id', 'checkmark')
+        document.documentElement.setAttribute('data-theme', themeMode)
+  }
+
+
+  // adding eventListener to all areas of the toggle button (checkmark-areas)
+  document.querySelectorAll('.checkmark-area').forEach(item => {
+        item.addEventListener('click', event => {
+
+              //set data-theme on html-element to the theme matching the pressed button
+              document.documentElement.setAttribute('data-theme', item.dataset.areaTheme)
+
+              //move checkmark to the correct position relative to the current theme
+              const currentPos = document.querySelector("#checkmark")
+              let targetDiv = document.querySelector("[data-area-theme='" + item.dataset.areaTheme + "']")
+              targetDiv.appendChild(currentPos)
+
+              //update localStorage
+              localStorage.setItem('theme', item.dataset.areaTheme)
+        })
+  })
+
+
+
+
   /*
   if (
     action === 'add' ||
