@@ -12,16 +12,15 @@
     --thm1-bg: hsl(222, 26%, 31%);
     --thm1-bg-toggle: hsl(223, 31%, 20%);
     --thm1-bg-screen: hsl(224, 36%, 15%);
-    --thm1-key-red: hsl(6, 63%, 50%);
-    --thm1-key-red-sh: hsl(6, 70%, 34%);
-    --thm1-key-red-h: hsla(6, 93%, 67%, 1);
-    --thm1-key-blue: hsl(225, 21%, 49%);
-    --thm1-key-blue-sh: hsl(224, 28%, 35%);
-    --thm1-key-blue-h: hsla(224, 51%, 76%, 1);
-    --thm1-key-orange: hsl(30, 25%, 89%);
-    --thm1-key-orange-sh: hsl(28, 16%, 65%);
-    --thm1-key-orange-h: hsla(31, 100%, 100%, 1);
-
+    --thm1-key-equal: hsl(6, 63%, 50%);
+    --thm1-key-equal-sh: hsl(6, 70%, 34%);
+    --thm1-key-equal-h: hsla(6, 93%, 67%, 1);
+    --thm1-key-clear: hsl(225, 21%, 49%);
+    --thm1-key-clear-sh: hsl(224, 28%, 35%);
+    --thm1-key-clear-h: hsla(224, 51%, 76%, 1);
+    --thm1-key-numb: hsl(30, 25%, 89%);
+    --thm1-key-numb-sh: hsl(28, 16%, 65%);
+    --thm1-key-numb-h: hsla(31, 100%, 100%, 1);
     --thm1-txt-blue: hsl(221, 14%, 31%);
     --thm1-txt-white: hsla(0, 0%, 100%, 1);
 
@@ -29,24 +28,24 @@
     --thm2-bg: hsl(0, 0%, 90%);
     --thm2-bg-toggle: hsl(0, 5%, 81%);
     --thm2-bg-screen: hsl(0, 0%, 93%);
-    --thm2-key-cayan: hsl(185, 42%, 37%);
-    --thm2-key-cayan-sh: hsl(185, 58%, 25%);
-    --thm2-key-orange: hsl(25, 98%, 40%);
-    --thm2-key-orange-sh: hsl(25, 99%, 27%);
-    --thm2-key-yellow: hsl(45, 7%, 89%);
-    --thm2-key-yellow-sh: hsl(35, 11%, 61%);
+    --thm2-key-clear: hsl(185, 42%, 37%);
+    --thm2-key-clear-sh: hsl(185, 58%, 25%);
+    --thm2-key-equal: hsl(25, 98%, 40%);
+    --thm2-key-equal-sh: hsl(25, 99%, 27%);
+    --thm2-key-numb: hsl(45, 7%, 89%);
+    --thm2-key-numb-sh: hsl(35, 11%, 61%);
     --thm2-txt-yellow: hsl(60, 10%, 19%);
     --thm2-txt-white: hsla(0, 0%, 100%, 1);
 
     /*theme 3*/
     --thm3-bg: hsl(268, 75%, 9%);
     --thm3-bg-screen: hsl(268, 71%, 12%); 
-    --thm3-key-violet: hsl(281, 89%, 26%);
-    --thm3-key-violet-sh: hsl(285, 91%, 52%);
-    --thm3-key-cyan: hsl(176, 100%, 44%);
-    --thm3-key-cyan-sh: hsl(177, 92%, 70%);
-    --thm3-key-magenta: hsl(268, 47%, 21%);
-    --thm3-key-magenta-sh: hsl(290, 70%, 36%);
+    --thm3-key-clear: hsl(281, 89%, 26%);
+    --thm3-key-clear-sh: hsl(285, 91%, 52%);
+    --thm3-key-equal: hsl(176, 100%, 44%);
+    --thm3-key-equal-sh: hsl(177, 92%, 70%);
+    --thm3-key-numb: hsl(268, 47%, 21%);
+    --thm3-key-numb-sh: hsl(290, 70%, 36%);
     --thm3-txt-yellow: hsl(52, 100%, 62%);
     --thm3-txt-blue: hsl(198, 20%, 13%);
     --thm3-txt-white: hsla(0, 0%, 100%, 1);
@@ -111,7 +110,7 @@ body {
     width: 18px;
     height: 18px;
     border-radius: 50%;
-    background: var(--thm1-key-red);  
+    background: var(--thm1-key-equal);  
     cursor: pointer;
   }
 
@@ -159,36 +158,36 @@ button {
     height: 64px;
     border-radius: 10px;
     border: none;
-    background-color: var(--thm1-key-orange);
+    background-color: var(--thm1-key-numb);
     font-size: 32px;
     line-height: 36px;
-    box-shadow: inset 0px -4px 0px var(--thm1-key-orange-sh);
+    box-shadow: inset 0px -4px 0px var(--thm1-key-numb-sh);
     letter-spacing: -0.5333333611488342px;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: var(--thm1-key-orange-h);
+    background-color: var(--thm1-key-numb-h);
 }
 
 button.key--clearing {
     color: var(--thm1-txt-white);
-    background-color: var(--thm1-key-blue);
-    box-shadow: inset 0px -4px 0px var(--thm1-key-blue-sh);
+    background-color: var(--thm1-key-clear);
+    box-shadow: inset 0px -4px 0px var(--thm1-key-clear-sh);
 }
 
 button.key--clearing:hover {
-    background-color: var(--thm1-key-blue-h);
+    background-color: var(--thm1-key-clear-h);
 }
 
 button.key--equal {
     color: var(--thm1-txt-white);
-    background-color: var(--thm1-key-red);
-    box-shadow: inset 0px -4px 0px var(--thm1-key-red-sh);
+    background-color: var(--thm1-key-equal);
+    box-shadow: inset 0px -4px 0px var(--thm1-key-equal-sh);
     grid-column: 3/5;
 }
 
 button.key--equal:hover {
-    background-color: var(--thm1-key-red-h);
+    background-color: var(--thm1-key-equal-h);
 }
 

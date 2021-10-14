@@ -13,15 +13,15 @@ function setTheme1() {
   root.setProperty(' --thm1-bg', 'hsl(222, 26%, 31%)');
   root.setProperty('--thm1-bg-toggle', 'hsl(223, 31%, 20%)');
   root.setProperty('--thm1-bg-screen', 'hsl(224, 36%, 15%)');
-  root.setProperty('--thm1-key-red', 'hsl(6, 63%, 50%)');
-  root.setProperty('--thm1-key-red-sh', 'hsl(6, 70%, 34%)');
-  root.setProperty('--thm1-key-red-h', 'hsla(6, 93%, 67%, 1)');
-  root.setProperty('--thm1-key-blue', 'hsl(225, 21%, 49%)');
-  root.setProperty('--thm1-key-blue-sh', 'hsl(224, 28%, 35%)');
-  root.setProperty('--thm1-key-blue-h', 'hsla(224, 51%, 76%, 1)');
-  root.setProperty('--thm1-key-orange','hsl(30, 25%, 89%)');
-  root.setProperty('--thm1-key-orange-sh', 'hsl(28, 16%, 65%)');
-  root.setProperty('--thm1-key-orange-h', 'hsla(31, 100%, 100%, 1)');
+  root.setProperty('--thm1-key-equal', 'hsl(6, 63%, 50%)');
+  root.setProperty('--thm1-key-equal-sh', 'hsl(6, 70%, 34%)');
+  root.setProperty('--thm1-key-equal-h', 'hsla(6, 93%, 67%, 1)');
+  root.setProperty('--thm1-key-clear', 'hsl(225, 21%, 49%)');
+  root.setProperty('--thm1-key-clear-sh', 'hsl(224, 28%, 35%)');
+  root.setProperty('--thm1-key-clear-h', 'hsla(224, 51%, 76%, 1)');
+  root.setProperty('--thm1-key-numb','hsl(30, 25%, 89%)');
+  root.setProperty('--thm1-key-numb-sh', 'hsl(28, 16%, 65%)');
+  root.setProperty('--thm1-key-numb-h', 'hsla(31, 100%, 100%, 1)');
   root.setProperty('--thm1-txt-blue', 'hsl(221, 14%, 31%)');
   root.setProperty('--thm1-txt-white', 'hsla(0, 0%, 100%, 1)')
 }
@@ -31,15 +31,15 @@ function setTheme2() {
   root.setProperty('--thm2-bg', 'hsl(0, 0%, 90%)');
   root.setProperty('--thm2-bg-toggle', 'hsl(0, 5%, 81%)');
   root.setProperty('--thm2-bg-screen', 'hsl(0, 0%, 93%)');
-  root.setProperty('--thm2-key-cayan', 'hsl(185, 42%, 37%)');
-  root.setProperty('--thm2-key-cayan-sh', 'hsl(185, 58%, 25%)');
-  root.setProperty('--thm2-key-cayan-h', 'hsla(184, 40%, 56%, 1)');
-  root.setProperty('--thm2-key-orange', 'hsl(25, 98%, 40%)');
-  root.setProperty('--thm2-key-orange-sh', 'hsl(25, 99%, 27%)');
-  root.setProperty('--thm2-key-orange-h', 'hsla(25, 100%, 61%, 1)');
-  root.setProperty('--thm2-key-yellow', 'hsl(45, 7%, 89%)');
-  root.setProperty('--thm2-key-yellow-sh', 'hsl(35, 11%, 61%)');
-  root.setProperty('--thm3-key-yellow-h', 'hsla(0, 0%, 100%, 1)');
+  root.setProperty('--thm2-key-clear', 'hsl(185, 42%, 37%)');
+  root.setProperty('--thm2-key-clear-sh', 'hsl(185, 58%, 25%)');
+  root.setProperty('--thm2-key-clear-h', 'hsla(184, 40%, 56%, 1)');
+  root.setProperty('--thm2-key-equal', 'hsl(25, 98%, 40%)');
+  root.setProperty('--thm2-key-equal-sh', 'hsl(25, 99%, 27%)');
+  root.setProperty('--thm2-key-equal-h', 'hsla(25, 100%, 61%, 1)');
+  root.setProperty('--thm2-key-numb', 'hsl(45, 7%, 89%)');
+  root.setProperty('--thm2-key-numb-sh', 'hsl(35, 11%, 61%)');
+  root.setProperty('--thm3-key-numb-h', 'hsla(0, 0%, 100%, 1)');
   root.setProperty('--thm2-txt-yellow', 'hsl(60, 10%, 19%)');
   root.setProperty('--thm2-txt-white', 'hsla(0, 0%, 100%, 1)');
  
@@ -50,31 +50,33 @@ function setTheme3 () {
   root.setProperty('--thm3-bg', 'hsl(268, 75%, 9%)');
   root.setProperty('--thm3-bg-toggle', 'hsl(268, 71%, 12%)');
   root.setProperty('--thm3-bg-screen', 'hsl(268, 71%, 12%)');
-  root.setProperty('--thm3-key-violet', 'hsl(281, 89%, 26%)');
-  root.setProperty('--thm3-key-violet-sh', 'hsl(285, 91%, 52%)');
-  root.setProperty('--thm3-key-violet-h', 'hsla(280, 56%, 44%, 1)');
-  root.setProperty('--thm3-key-cyan', 'hsl(176, 100%, 44%)');
-  root.setProperty('--thm3-key-cyan-sh', 'hsl(177, 92%, 70%)');
-  root.setProperty('--thm3-key-cyan-h', 'hsla(176, 100%, 79%, 1)');
-  root.setProperty('--thm3-key-magenta', 'hsl(268, 47%, 21%)');
-  root.setProperty('--thm3-key-magenta-sh', 'hsl(290, 70%, 36%)');
-  root.setProperty('--thm3-key-magenta-h', 'hsla(268, 54%, 44%, 1)');
+  root.setProperty('--thm3-key-clear', 'hsl(281, 89%, 26%)');
+  root.setProperty('--thm3-key-clear-sh', 'hsl(285, 91%, 52%)');
+  root.setProperty('--thm3-key-clear-h', 'hsla(280, 56%, 44%, 1)');
+  root.setProperty('--thm3-key-equal', 'hsl(176, 100%, 44%)');
+  root.setProperty('--thm3-key-equal-sh', 'hsl(177, 92%, 70%)');
+  root.setProperty('--thm3-key-equal-h', 'hsla(176, 100%, 79%, 1)');
+  root.setProperty('--thm3-key-numb', 'hsl(268, 47%, 21%)');
+  root.setProperty('--thm3-key-numb-sh', 'hsl(290, 70%, 36%)');
+  root.setProperty('--thm3-key-numb-h', 'hsla(268, 54%, 44%, 1)');
   root.setProperty('--thm3-txt-yellow', 'hsl(52, 100%, 62%)');
   root.setProperty('--thm3-txt-blue', 'hsl(198, 20%, 13%)')
   root.setProperty('--thm3-txt-white', 'hsla(0, 0%, 100%, 1)');
 }
 
 
+const slider = document.getElementsByClassName('slider');
+
  slid.addEventListener('click', () => {
-  document.body.classList.slid('theme1');
-  const theme = document.body.classList.contains('theme') ? 'theme1' : 'theme2' , 'theme3';
-  if (theme === 'theme1') {
+  document.body.classList.toggle('slid');
+  let theme = document.body.classList.contains('1','2','3');
+  if (theme === '1') {
     setTheme1();
-  } else if (theme === 'theme2') {
+  } else if (theme === '2') {
     setTheme2();
   } else 
     setTheme3
-  localStorage.setItem('theme', theme);
+  localStorage.setItem('3', theme);
 });
 
 
@@ -209,29 +211,3 @@ keys.addEventListener('click', e => {
   updateCalculatorState(key, calculator, resultString, displayedNum)
   updateVisualState(key, calculator)
 })
-
-
-
-
-
-
-
-
-/*
-
-//variables
-const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-const calculator = document.querySelector(`.calculator`)
-const keys = calculator.querySelector(`.keys`)
-
-
-//slider 
-const slid = document.getElementById("myRange");
-
-
-
-/*  let themeMode = localStorage.getItem('theme')
-
-*/
-
-  
