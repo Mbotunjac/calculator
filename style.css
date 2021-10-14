@@ -164,6 +164,7 @@ button {
     line-height: 36px;
     box-shadow: inset 0px -4px 0px var(--thm1-key-orange-sh);
     letter-spacing: -0.5333333611488342px;
+    cursor: pointer;
 }
 
 button:hover {
