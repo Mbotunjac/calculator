@@ -1,16 +1,79 @@
 //------------------------themes---------------------------------
 
-//slider 
-const slid = document.getElementById("myRange");
+/*
 
-//previous saved theme
-let theme = localStorage.getItem('theme')
+function toggleTheme () {
+    const htmlTag = document.getElementsByTagName('html')[0]
+    const themeNum = document.getElementById("myRange").value;
+    
+    
+    switch(themeNum) {
+        case "1":
+            htmlTag.setAttribute('data-mytheme', 'dark')
+            window.localStorage.setItem("site-theme", "dark")        
+            window.localStorage.setItem("slider-val", "1")        
+            break;
+        case "2":
+            htmlTag.setAttribute('data-mytheme', 'light')
+            window.localStorage.setItem("site-theme", "light")
+            window.localStorage.setItem("slider-val", "2")        
+            break;
+        case "3":
+            htmlTag.setAttribute('data-mytheme', 'purple')
+            window.localStorage.setItem("site-theme", "purple")        
+            window.localStorage.setItem("slider-val", "3")        
+            break;
+        default:
+            htmlTag.setAttribute('data-mytheme', 'dark')
+            window.localStorage.setItem("site-theme", "dark")
+            window.localStorage.setItem("slider-val", "1")        
+    }
+}
+
+function applyInitialTheme () {
+  const theme = window.localStorage.getItem("site-theme")
+  const sliderValue = window.localStorage.getItem("slider-val")
+
+  if (theme !== null) {
+      const htmlTag = document.getElementsByTagName("html")[0]
+      const slider = document.getElementById("myRange");
+
+      htmlTag.setAttribute("data-mytheme", theme)
+      slider.value = sliderValue;
+    }
+}
+
+
+applyInitialTheme();
+
+document
+  .getElementById("myRange")
+  .addEventListener("input", toggleTheme);
+
+  */
 
 //themes:
 
+const slider = document.querySelector('.slider');
+const root = document.documentElement.style;
+
+// Change the theme on the button click
+slider.addEventListener('click', () => {
+  document.body.classList.slider("myRange");
+  const value = document.body.classList.contains('slide');
+  if (value === '1') {
+    setTheme1();
+  } else if (value === '2') {
+    setTheme2();
+  } else (value === '3')
+    setTheme3
+  localStorage.setItem('velue', value);
+});
+
+
 //theme1 (dark)
 function setTheme1() {
-  root.setProperty(' --thm1-bg', 'hsl(222, 26%, 31%)');
+  root.setProperty('--thm1-bg', 'hsl(222, 26%, 31%)');
   root.setProperty('--thm1-bg-toggle', 'hsl(223, 31%, 20%)');
   root.setProperty('--thm1-bg-screen', 'hsl(224, 36%, 15%)');
   root.setProperty('--thm1-key-equal', 'hsl(6, 63%, 50%)');
@@ -65,20 +128,24 @@ function setTheme3 () {
 }
 
 
+
+/*
+
+//key listener
 const slider = document.getElementsByClassName('slider');
 
- slid.addEventListener('click', () => {
-  document.body.classList.toggle('slid');
-  let theme = document.body.classList.contains('1','2','3');
+document
+  .getElementById("myRange")
+  .addEventListener("input", theme)
   if (theme === '1') {
     setTheme1();
   } else if (theme === '2') {
     setTheme2();
   } else 
-    setTheme3
+    setTheme3()
   localStorage.setItem('3', theme);
-});
 
+*/
 
 
 
