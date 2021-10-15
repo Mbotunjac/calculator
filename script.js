@@ -56,6 +56,7 @@ function append(value) {
   values[index] = values[index] || '';
   if (value !== '.' || !values[index].includes('.')) {
     values[index] += value;
+    values[index] = `${Number(values[index])}`
     updateDisplay();
   }
 }
