@@ -1,280 +1,222 @@
-//------------------------themes---------------------------------
+// All button elements
+const buttons = document.querySelectorAll('.keys button')
+// The display element
+const display = document.getElementById('display')
+// Theme checkboxes
+const themeSwitches = document.querySelectorAll('input[name=slider]');
+// An array containing: 1st value, operation, and 2nd value
+let values = [];
 
-/*
 
-function toggleTheme () {
-    const htmlTag = document.getElementsByTagName('html')[0]
-    const themeNum = document.getElementById("myRange").value;
-    
-    
-    switch(themeNum) {
-        case "1":
-            htmlTag.setAttribute('data-mytheme', 'dark')
-            window.localStorage.setItem("site-theme", "dark")        
-            window.localStorage.setItem("slider-val", "1")        
-            break;
-        case "2":
-            htmlTag.setAttribute('data-mytheme', 'light')
-            window.localStorage.setItem("site-theme", "light")
-            window.localStorage.setItem("slider-val", "2")        
-            break;
-        case "3":
-            htmlTag.setAttribute('data-mytheme', 'purple')
-            window.localStorage.setItem("site-theme", "purple")        
-            window.localStorage.setItem("slider-val", "3")        
-            break;
-        default:
-            htmlTag.setAttribute('data-mytheme', 'dark')
-            window.localStorage.setItem("site-theme", "dark")
-            window.localStorage.setItem("slider-val", "1")        
-    }
+// Update the display values
+function updateDisplay() {
+  display.innerHTML = values.join(' ')
+    .replace(/\./g, ',');
 }
 
-function applyInitialTheme () {
-  const theme = window.localStorage.getItem("site-theme")
-  const sliderValue = window.localStorage.getItem("slider-val")
-
-  if (theme !== null) {
-      const htmlTag = document.getElementsByTagName("html")[0]
-      const slider = document.getElementById("myRange");
-
-      htmlTag.setAttribute("data-mytheme", theme)
-      slider.value = sliderValue;
-    }
+function round(num) {    
+  const h = Number('1'.padEnd(10, '0')); 
+  return Math.round(num * h) / h;
 }
 
+// Run the operation (i.e., 1st number + 2nd number)
+function runOperation() {
+  // If there are no 3 values, ignore the key press
+  if (values.length !== 3) {
+    return;
+  }
+  switch (values[1]) {
+    // In case of + sum the numbers
+    case '+':
+      // Save the rounded sum as a 1st number in values
+      // But convert the number to string
+      values = [
+        round(Number(values[0]) + Number(values[2])) + ''
+      ];
+      break;
+    // Same for each operation
+    case '-':
+      values = [
+        round(Number(values[0]) - Number(values[2])) + ''
+      ];
+      break;
+    case '*':
+      values = [
+        round(Number(values[0]) * Number(values[2])) + ''
+      ];
+      break;
+    case '/':
+      values = [
+        round(Number(values[0]) / Number(values[2])) + ''
+      ];
+      break;
+    default:
+  }
+  updateDisplay();
+}
 
-applyInitialTheme();
+// Append a digit or a decimal point
+function append(value) {
+  const index = (values.length === 3 || values.length === 2) ? 2 : 0;
+  
+  // Allow up to 10 charactetrs/digits
+  if (values[index] && values[index].length >= 10) {
+    // Ignore the keypress if there are already 10 characters
+    return;
+  }
 
-document
-  .getElementById("myRange")
-  .addEventListener("input", toggleTheme);
+  values[index] = values[index] || '';
+  if (value !== '.' || !values[index].includes('.')) {
+    values[index] += value;
+    updateDisplay();
+  }
+}
 
-  */
+// Append an operation (+, -, * or /)
+function appendOperator(value) {
+  if (values.length === 1) {
+    values[1] = value;
+    updateDisplay();
+  }
 
-//themes:
+  else if (values.length === 3) {
+    runOperation();
+    values[1] = value;
+    updateDisplay();
+  }
+ 
+  else if (values.length === 2) {
+    values[1] = value;
+    updateDisplay();
+  }
+}
 
-const slider = document.querySelector('.slider');
-const root = document.documentElement.style;
+// Delete
+function deleteLastCharacter() {
+ 
+  if (values.length === 1) {
+    values[0] = values[0].slice(0, -1);
+  } else if (values.length === 3) {
+    values[2] = values[2].slice(0, -1);
+  }
+  updateDisplay();
+}
 
-// Change the theme on the button click
-slider.addEventListener('click', () => {
-  document.body.classList.slider("myRange");
-  const value = document.body.classList.contains('slide');
-  if (value === '1') {
-    setTheme1();
-  } else if (value === '2') {
-    setTheme2();
-  } else (value === '3')
-    setTheme3
-  localStorage.setItem('velue', value);
+// Reset everything
+function reset() {
+  values = []; 
+  updateDisplay(); 
+}
+
+// receives the button value
+function handleClick(value) {
+  switch (value) {
+    case 'reset': 
+      reset(); 
+      break; 
+    case 'delete':
+      deleteLastCharacter();
+      break;
+    case '=':
+      runOperation();
+      break;
+    case '+': 
+    case '-':
+    case '*':
+    case '/':
+      appendOperator(value); 
+      break;
+    default:
+      append(value);
+  }
+}
+
+// Listener 
+buttons.forEach(button => {
+  button.addEventListener('click', (e) => {
+    handleClick(e.target.value);
+  });
 });
 
+// -----------------------------THEME SWITCHER------------------------
 
-//theme1 (dark)
+const root = document.documentElement.style;
+
+//theme 1
 function setTheme1() {
-  root.setProperty('--thm1-bg', 'hsl(222, 26%, 31%)');
-  root.setProperty('--thm1-bg-toggle', 'hsl(223, 31%, 20%)');
-  root.setProperty('--thm1-bg-screen', 'hsl(224, 36%, 15%)');
-  root.setProperty('--thm1-key-equal', 'hsl(6, 63%, 50%)');
-  root.setProperty('--thm1-key-equal-sh', 'hsl(6, 70%, 34%)');
-  root.setProperty('--thm1-key-equal-h', 'hsla(6, 93%, 67%, 1)');
-  root.setProperty('--thm1-key-clear', 'hsl(225, 21%, 49%)');
-  root.setProperty('--thm1-key-clear-sh', 'hsl(224, 28%, 35%)');
-  root.setProperty('--thm1-key-clear-h', 'hsla(224, 51%, 76%, 1)');
-  root.setProperty('--thm1-key-numb','hsl(30, 25%, 89%)');
-  root.setProperty('--thm1-key-numb-sh', 'hsl(28, 16%, 65%)');
-  root.setProperty('--thm1-key-numb-h', 'hsla(31, 100%, 100%, 1)');
-  root.setProperty('--thm1-txt-blue', 'hsl(221, 14%, 31%)');
-  root.setProperty('--thm1-txt-white', 'hsla(0, 0%, 100%, 1)')
+  root.setProperty('--background-color', '#3b4764');
+  root.setProperty('--display-color', '#181f32');
+  root.setProperty('--display-text-color', '#ffffff');
+  root.setProperty('--keyboard-background-color', '#242e44');
+  root.setProperty('--key-default-color', '#e9e3db');
+  root.setProperty('--key-default-shadow-color', '#b3a398');
+  root.setProperty('--key-default-hover-color',  '#FFFFFE');
+  root.setProperty('--key-default-text-color', '#4a505f');
+  root.setProperty('--key-accent-color', '#64719b');
+  root.setProperty('--key-accent-shadow-color', '#424d74');
+  root.setProperty('--key-accent-hover-color', '#A2B2E1');
+  root.setProperty('--key-accent-text-color', '#ffffff');
+  root.setProperty('--key-equal-color', '#d14030');
+  root.setProperty('--key-equal-shadow-color', '#912417');
+  root.setProperty('--key-equal-hover-color', '#F96B5B');
+  root.setProperty('--key-equal-text-color', '#ffffff');
 }
 
-//theme2 (light)
+//theme 2
 function setTheme2() {
-  root.setProperty('--thm2-bg', 'hsl(0, 0%, 90%)');
-  root.setProperty('--thm2-bg-toggle', 'hsl(0, 5%, 81%)');
-  root.setProperty('--thm2-bg-screen', 'hsl(0, 0%, 93%)');
-  root.setProperty('--thm2-key-clear', 'hsl(185, 42%, 37%)');
-  root.setProperty('--thm2-key-clear-sh', 'hsl(185, 58%, 25%)');
-  root.setProperty('--thm2-key-clear-h', 'hsla(184, 40%, 56%, 1)');
-  root.setProperty('--thm2-key-equal', 'hsl(25, 98%, 40%)');
-  root.setProperty('--thm2-key-equal-sh', 'hsl(25, 99%, 27%)');
-  root.setProperty('--thm2-key-equal-h', 'hsla(25, 100%, 61%, 1)');
-  root.setProperty('--thm2-key-numb', 'hsl(45, 7%, 89%)');
-  root.setProperty('--thm2-key-numb-sh', 'hsl(35, 11%, 61%)');
-  root.setProperty('--thm3-key-numb-h', 'hsla(0, 0%, 100%, 1)');
-  root.setProperty('--thm2-txt-yellow', 'hsl(60, 10%, 19%)');
-  root.setProperty('--thm2-txt-white', 'hsla(0, 0%, 100%, 1)');
- 
+  root.setProperty('--background-color', '#e6e6e6');
+  root.setProperty('--display-color', '#eeeeee');
+  root.setProperty('--display-text-color', '#36362e');
+  root.setProperty('--keyboard-background-color', '#d3cdcd');
+  root.setProperty('--key-default-color', '#e5e4df');
+  root.setProperty('--key-default-shadow-color', '#a69d90');
+  root.setProperty('--key-default-hover-color', '#FFFFFE');
+  root.setProperty('--key-default-text-color', '#37372f');
+  root.setProperty('--key-accent-color', '#3a8087');
+  root.setProperty('--key-accent-shadow-color', '#1b6067');
+  root.setProperty('--key-accent-hover-color', ' #62B5BC');
+  root.setProperty('--key-accent-text-color', '#ffffff');
+  root.setProperty('--key-equal-color', '#c85401');
+  root.setProperty('--key-equal-shadow-color', '#893a01');
+  root.setProperty('--key-equal-hover-color', '#FF8A38');
+  root.setProperty('--key-equal-text-color', '#ffffff');
 }
 
-//theme3 (purpule)
-function setTheme3 () {
-  root.setProperty('--thm3-bg', 'hsl(268, 75%, 9%)');
-  root.setProperty('--thm3-bg-toggle', 'hsl(268, 71%, 12%)');
-  root.setProperty('--thm3-bg-screen', 'hsl(268, 71%, 12%)');
-  root.setProperty('--thm3-key-clear', 'hsl(281, 89%, 26%)');
-  root.setProperty('--thm3-key-clear-sh', 'hsl(285, 91%, 52%)');
-  root.setProperty('--thm3-key-clear-h', 'hsla(280, 56%, 44%, 1)');
-  root.setProperty('--thm3-key-equal', 'hsl(176, 100%, 44%)');
-  root.setProperty('--thm3-key-equal-sh', 'hsl(177, 92%, 70%)');
-  root.setProperty('--thm3-key-equal-h', 'hsla(176, 100%, 79%, 1)');
-  root.setProperty('--thm3-key-numb', 'hsl(268, 47%, 21%)');
-  root.setProperty('--thm3-key-numb-sh', 'hsl(290, 70%, 36%)');
-  root.setProperty('--thm3-key-numb-h', 'hsla(268, 54%, 44%, 1)');
-  root.setProperty('--thm3-txt-yellow', 'hsl(52, 100%, 62%)');
-  root.setProperty('--thm3-txt-blue', 'hsl(198, 20%, 13%)')
-  root.setProperty('--thm3-txt-white', 'hsla(0, 0%, 100%, 1)');
+//theme 3
+function setTheme3() {
+  root.setProperty('--background-color', '#18052a');
+  root.setProperty('--display-color', '#1e0835');
+  root.setProperty('--display-text-color', '#ffe848');
+  root.setProperty('--keyboard-background-color', '#1e0835');
+  root.setProperty('--key-default-color', '#341a4d');
+  root.setProperty('--key-default-shadow-color', '#861a9d');
+  root.setProperty('--key-default-hover-color', '#6C34AC');
+  root.setProperty('--key-default-text-color', '#ffe540');
+  root.setProperty('--key-accent-color', '#56077c');
+  root.setProperty('--key-accent-shadow-color', '#bf15f3');
+  root.setProperty('--key-accent-hover-color', ' #8631AF');
+  root.setProperty('--key-accent-text-color', '#ffffff');
+  root.setProperty('--key-equal-color', '#00decf');
+  root.setProperty('--key-equal-shadow-color', '#6df9f0');
+  root.setProperty('--key-equal-hover-color', '#93FFF8');
+  root.setProperty('--key-equal-text-color', '#043c3c');
 }
 
-
-
-/*
-
-//key listener
-const slider = document.getElementsByClassName('slider');
-
-document
-  .getElementById("myRange")
-  .addEventListener("input", theme)
-  if (theme === '1') {
-    setTheme1();
-  } else if (theme === '2') {
-    setTheme2();
-  } else 
-    setTheme3()
-  localStorage.setItem('3', theme);
-
-*/
-
-
-
-//---------------------calculator--------------------------------
-
-const calculate = (n1, operator, n2) => {
-  const firstNum = parseFloat(n1)
-  const secondNum = parseFloat(n2)
-  if (operator === 'add') return firstNum + secondNum
-  if (operator === 'subtract') return firstNum - secondNum
-  if (operator === 'multiply') return firstNum * secondNum
-  if (operator === 'divide') return firstNum / secondNum
-}
-
-const getKeyType = key => {
-  const { action } = key.dataset
-  if (!action) return 'number'
-  if (
-    action === 'add' ||
-    action === 'subtract' ||
-    action === 'multiply' ||
-    action === 'divide'
-  ) return 'operator'
-  // For everything else, return the action
-  return action
-}
-
-const createResultString = (key, displayedNum, state) => {
-  const keyContent = key.textContent
-  const keyType = getKeyType(key)
-  const {
-    firstValue,
-    operator,
-    modValue,
-    previousKeyType
-  } = state
-
-  if (keyType === 'number') {
-    return displayedNum === '0' ||
-      previousKeyType === 'operator' ||
-      previousKeyType === 'calculate'
-      ? keyContent
-      : displayedNum + keyContent
-  }
-
-  if (keyType === 'decimal') {
-    if (!displayedNum.includes('.')) return displayedNum + '.'
-    if (previousKeyType === 'operator' || previousKeyType === 'calculate') return '0.'
-    return displayedNum
-  }
-
-  if (keyType === 'operator') {
-    return firstValue &&
-      operator &&
-      previousKeyType !== 'operator' &&
-      previousKeyType !== 'calculate'
-      ? calculate(firstValue, operator, displayedNum)
-      : displayedNum
-  }
-
-  if (keyType === 'clear') return 0
-
-  if (keyType === 'delete') {
-    return display.innerText = display.innerText.slice(0, -1)
-  }  
-     
-  if (keyType === 'calculate') {
-    return firstValue
-      ? previousKeyType === 'calculate'
-        ? calculate(displayedNum, operator, modValue)
-        : calculate(firstValue, operator, displayedNum)
-      : displayedNum
+// Update CSS variables on theme switch
+function onThemeSwitch(event) {
+  console.log(event.target.value)
+  switch (event.target.value) {
+    case '2':
+      setTheme2();
+      break;
+    case '3':
+      setTheme3();
+      break;
+    default:
+      setTheme1();
   }
 }
 
-const updateCalculatorState = (key, calculator, calculatedValue, displayedNum) => {
-  const keyType = getKeyType(key)
-  const {
-    firstValue,
-    operator,
-    modValue,
-    previousKeyType
-  } = calculator.dataset
-
-  calculator.dataset.previousKeyType = keyType
-
-  if (keyType === 'operator') {
-    calculator.dataset.operator = key.dataset.action
-    calculator.dataset.firstValue = firstValue &&
-      operator &&
-      previousKeyType !== 'operator' &&
-      previousKeyType !== 'calculate'
-      ? calculatedValue
-      : displayedNum
-  }
-
-  if (keyType === 'calculate') {
-    calculator.dataset.modValue = firstValue && previousKeyType === 'calculate'
-      ? modValue
-      : displayedNum
-  }
-
-  if (keyType === 'clear' && key.textContent === 'RESET') {
-    calculator.dataset.firstValue = ''
-    calculator.dataset.modValue = ''
-    calculator.dataset.operator = ''
-    calculator.dataset.previousKeyType = ''
-  }
-}
-
-const updateVisualState = (key, calculator) => {
-  const keyType = getKeyType(key)
-  Array.from(key.parentNode.children).forEach(k => k.classList.remove('is-depressed'))
-
-  if (keyType === 'operator') key.classList.add('is-depressed')
-  if (keyType === 'clear' && key.textContent !== 'RESET') key.textContent = 'RESET'
-}
-
-const calculator = document.querySelector('.calculator')
-const display = calculator.querySelector('.display')
-const keys = calculator.querySelector('.keys')
-
-keys.addEventListener('click', e => {
-  if (!e.target.matches('button')) return
-  const key = e.target
-  const displayedNum = display.textContent
-  const resultString = createResultString(key, displayedNum, calculator.dataset)
-
-  display.textContent = resultString
-  updateCalculatorState(key, calculator, resultString, displayedNum)
-  updateVisualState(key, calculator)
+themeSwitches.forEach(checkbox => {
+  checkbox.addEventListener('change', onThemeSwitch);
 })

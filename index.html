@@ -11,41 +11,35 @@
   <script src="script.js" async></script>
 </head>
 <body>
-  <div class="wraper">
-    <header class="head">
-      <div class="title">calc</div>
-      <div class="theme">theme</div>
-      <div class="toggle">123
-        <div class="slider">
-          <input type="range" min="1" max="3" value="1" class="slid" id="myRange"></input>
-        
+  <div class="calculator">
+    <p>123</p>
+    <div class="top">
+      <h1 class="title">calc</h1>
+      <div class="theme-toggle">
+        <div class="theme">theme</div>
+        <input type="range" name="slider" class="slider" value="1" min="1" max="3" id=“theme-switcher” />
       </div>
-    </header>
-
-    <div class="calculator">
-
-      <div class="display">0</div>
-
-      <div class="keys">
-        <button>7</button>
-        <button>8</button>
-        <button>9</button>
-        <button class="key--clearing" data-action="delete">DEL</button>
-        <button>4</button>
-        <button>5</button>
-        <button>6</button>
-        <button class="key--operator" data-action="add">+</button>
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button class="key--operator" data-action="subtract">-</button>
-        <button data-action="decimal">.</button>
-        <button>0</button>
-        <button class="key--operator" data-action="divide">/</button>
-        <button class="key--operator" data-action="multiply">&times;</button>
-        <button class="key--clearing" data-action="clear">RESET</button>
-        <button class="key--equal" data-action="calculate">=</button>
-      </div>
+    </div>
+    <div class="display" id="display"></div>
+    <div class="keys">
+      <button value="7">7</button>
+      <button value="8">8</button>
+      <button value="9">9</button>
+      <button value="delete" class="accent">del</button>
+      <button value="4">4</button>
+      <button value="5">5</button>
+      <button value="6">6</button>
+      <button value="+">+</button>
+      <button value="1">1</button>
+      <button value="2">2</button>
+      <button value="3">3</button>
+      <button value="-">-</button>
+      <button value=".">.</button>
+      <button value="0">0</button>
+      <button value="/">/</button>
+      <button value="*">*</button>
+      <button value="=" class="long equal">=</button>
+      <button value="reset" class="long accent">reset</button>
     </div>
   </div>
 

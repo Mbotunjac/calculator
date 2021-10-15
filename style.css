@@ -1,253 +1,183 @@
 @import url('https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-}
-
 :root {
-
-    /*colors*/
-    /*theme 1 - dark*/
-    --thm1-bg: hsl(222, 26%, 31%);
-    --thm1-bg-toggle: hsl(223, 31%, 20%);
-    --thm1-bg-screen: hsl(224, 36%, 15%);
-    --thm1-key-equal: hsl(6, 63%, 50%);
-    --thm1-key-equal-sh: hsl(6, 70%, 34%);
-    --thm1-key-equal-h: hsla(6, 93%, 67%, 1);
-    --thm1-key-clear: hsl(225, 21%, 49%);
-    --thm1-key-clear-sh: hsl(224, 28%, 35%);
-    --thm1-key-clear-h: hsla(224, 51%, 76%, 1);
-    --thm1-key-numb: hsl(30, 25%, 89%);
-    --thm1-key-numb-sh: hsl(28, 16%, 65%);
-    --thm1-key-numb-h: hsla(31, 100%, 100%, 1);
-    --thm1-txt-blue: hsl(221, 14%, 31%);
-    --thm1-txt-white: hsla(0, 0%, 100%, 1);
-
-    /*theme 2 - light*/
-    --thm2-bg: hsl(0, 0%, 90%);
-    --thm2-bg-toggle: hsl(0, 5%, 81%);
-    --thm2-bg-screen: hsl(0, 0%, 93%);
-    --thm2-key-clear: hsl(185, 42%, 37%);
-    --thm2-key-clear-sh: hsl(185, 58%, 25%);
-    --thm2-key-clear-h: hsla(184, 40%, 56%, 1);
-    --thm2-key-equal: hsl(25, 98%, 40%);
-    --thm2-key-equal-sh: hsl(25, 99%, 27%);
-    --thm2-key-equal-h: hsla(25, 100%, 61%, 1);
-    --thm2-key-numb: hsl(45, 7%, 89%);
-    --thm2-key-numb-sh: hsl(35, 11%, 61%);
-    --thm3-key-numb-h: hsla(0, 0%, 100%, 1);
-    --thm2-txt-yellow: hsl(60, 10%, 19%);
-    --thm2-txt-white: hsla(0, 0%, 100%, 1);
-
-    /*theme 3 - purple*/
-    --thm3-bg: hsl(268, 75%, 9%);
-    --thm3-bg-screen: hsl(268, 71%, 12%); 
-    --thm3-key-clear: hsl(281, 89%, 26%);
-    --thm3-key-clear-sh: hsl(285, 91%, 52%);
-    --thm3-key-clear-h: hsla(280, 56%, 44%, 1);
-    --thm3-key-equal: hsl(176, 100%, 44%);
-    --thm3-key-equal-sh: hsl(177, 92%, 70%);
-    --thm3-key-equal-h: hsla(176, 100%, 79%, 1);
-    --thm3-key-numb: hsl(268, 47%, 21%);
-    --thm3-key-numb-sh: hsl(290, 70%, 36%);
-    --thm3-key-numb-h: hsla(268, 54%, 44%, 1);
-    --thm3-txt-yellow: hsl(52, 100%, 62%);
-    --thm3-txt-blue: hsl(198, 20%, 13%);
-    --thm3-txt-white: hsla(0, 0%, 100%, 1);
-
+    --background-color: #3b4764;
+    --display-color: #181f32;
+    --display-text-color: #ffffff;
+    --keyboard-background-color: #242e44;
+    --key-default-color: #e9e3db;
+    --key-default-shadow-color: #b3a398;
+    --key-default-hover-color:  #FFFFFE;
+    --key-default-text-color: #4a505f;
+    --key-accent-color: #64719b;
+    --key-accent-shadow-color: #424d74;
+    --key-accent-hover-color: #A2B2E1;
+    --key-accent-text-color: #ffffff;
+    --key-equal-color: #d14030;
+    --key-equal-shadow-color: #912417;
+    --key-equal-hover-color: #F96B5B;
+    --key-equal-text-color: #ffffff;
 }
-
-
-
-html[data-mytheme="dark"] {
-    --thm1-bg: hsl(222, 26%, 31%);
-    --thm1-bg-toggle: hsl(223, 31%, 20%);
-    --thm1-bg-screen: hsl(224, 36%, 15%);
-    --thm1-key-equal: hsl(6, 63%, 50%);
-    --thm1-key-equal-sh: hsl(6, 70%, 34%);
-    --thm1-key-equal-h: hsla(6, 93%, 67%, 1);
-    --thm1-key-clear: hsl(225, 21%, 49%);
-    --thm1-key-clear-sh: hsl(224, 28%, 35%);
-    --thm1-key-clear-h: hsla(224, 51%, 76%, 1);
-    --thm1-key-numb: hsl(30, 25%, 89%);
-    --thm1-key-numb-sh: hsl(28, 16%, 65%);
-    --thm1-key-numb-h: hsla(31, 100%, 100%, 1);
-    --thm1-txt-blue: hsl(221, 14%, 31%);
-    --thm1-txt-white: hsla(0, 0%, 100%, 1);
-}
-
-html[data-mytheme="light"] {
-    --thm2-bg: hsl(0, 0%, 90%);
-    --thm2-bg-toggle: hsl(0, 5%, 81%);
-    --thm2-bg-screen: hsl(0, 0%, 93%);
-    --thm2-key-clear: hsl(185, 42%, 37%);
-    --thm2-key-clear-sh: hsl(185, 58%, 25%);
-    --thm2-key-clear-h: hsla(184, 40%, 56%, 1);
-    --thm2-key-equal: hsl(25, 98%, 40%);
-    --thm2-key-equal-sh: hsl(25, 99%, 27%);
-    --thm2-key-equal-h: hsla(25, 100%, 61%, 1);
-    --thm2-key-numb: hsl(45, 7%, 89%);
-    --thm2-key-numb-sh: hsl(35, 11%, 61%);
-    --thm3-key-numb-h: hsla(0, 0%, 100%, 1);
-    --thm2-txt-yellow: hsl(60, 10%, 19%);
-    --thm2-txt-white: hsla(0, 0%, 100%, 1);
-}
-
-html[data-mytheme="purple"] {
-    --thm3-bg: hsl(268, 75%, 9%);
-    --thm3-bg-screen: hsl(268, 71%, 12%); 
-    --thm3-key-clear: hsl(281, 89%, 26%);
-    --thm3-key-clear-sh: hsl(285, 91%, 52%);
-    --thm3-key-clear-h: hsla(280, 56%, 44%, 1);
-    --thm3-key-equal: hsl(176, 100%, 44%);
-    --thm3-key-equal-sh: hsl(177, 92%, 70%);
-    --thm3-key-equal-h: hsla(176, 100%, 79%, 1);
-    --thm3-key-numb: hsl(268, 47%, 21%);
-    --thm3-key-numb-sh: hsl(290, 70%, 36%);
-    --thm3-key-numb-h: hsla(268, 54%, 44%, 1);
-    --thm3-txt-yellow: hsl(52, 100%, 62%);
-    --thm3-txt-blue: hsl(198, 20%, 13%);
-    --thm3-txt-white: hsla(0, 0%, 100%, 1);
-}
-
 
 body {
-    font-size: 32px;
+    margin: 0;
+    padding: 0;
+    background: var(--background-color);
     font-family: "Spartan", sans-serif;
-    font-weight: 700;
-    background: var(--thm1-bg);
-    color: var(--thm1-txt-white);
 }
 
-.head {
-    position: relative;
-    margin-top: 96px;
+.top {
+    margin-bottom: 32px;
     max-height: 44px;
+    max-width: 540px;
     display: flex;
     justify-content: space-between;
     line-height: 36px;
     letter-spacing: -0.5333333611488342px;
     text-align: center;
+    color: var(--key-default-text-color);
+}
+
+.theme-toggle {
+    display: flex;
+    justify-content: space-between;
+    max-width: 144px;
+    margin-right: 1%;
+}
+
+
+.title {
+    height: 100%;
+    margin: auto 0;
 }
 
 .theme {
     position: relative;
-    left: 30%;
-    top: 20px;
     height: 13px;
     font-weight: bold;
-    font-size: 12px;
+    font-size: 13px;
     line-height: 14px;
     letter-spacing: 1px;
-
-    
-}
-
-.toggle {
-    font-size: 12px;
-    line-height: 13px;
-    letter-spacing: 10px;
-    text-align: center;
+    margin: 5% auto;
+    padding-right: 5%;
 }
 
 .slider {
-    max-width: 71px; 
-}
-
-.slid {
-    max-width: 100%;
+    max-width: 71px;
     height: 26px;
     -webkit-appearance: none;
     border-radius: 13px;
     outline: none;
-    background: var(--thm1-bg-toggle);  
+    background: var(--keyboard-background-color);  
+    padding: 0 5px;
 }
 
-.slid::-webkit-slider-thumb {
+.slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
     width: 18px;
     height: 18px;
     border-radius: 50%;
-    background: var(--thm1-key-equal);  
+    background: var(--key-equal-color);  
     cursor: pointer;
   }
 
-.wraper {
+  .slider::-webkit-slider-thumb:hover {
+      background: var(--key-equal-hover-color);
+  }
+
+.calculator {
+    display: block;
+    overflow: hidden;
+    margin: 80px auto;
     max-width: 540px;
+}
+
+.calculator p {
     position: relative;
-    margin: auto;
+    text-align: right;
+    font-size: 12px;
+    line-height: 13px;
+    letter-spacing: 15px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--key-default-text-color);
 }
 
 .display {
+    width: 540px;
     height: 128px;
-    border-radius: 10px;
-    width: 100%;
-    font-weight: bold;
-    font-size: 48px;
-    line-height: 54px;
-    border: none;
-    background-color: var(--thm1-bg-screen);
-    color: var(--thm1-txt-white);
+    line-height: 128px;
+    background: var(--display-color);
+    color: var(--display-text-color);
+    font-size: 42px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    padding: 0 45px;
     text-align: right;
-    letter-spacing: -0.8px;
-    margin-top: 32px;
-    margin-bottom: 24px;
+    box-sizing: border-box;
 }
 
 .keys {
-    background: var(--thm1-bg-toggle);
-    color: var(--thm1-txt-blue);
-    height: 100%;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-row-gap: 5%;
-    grid-column-gap: 4%;
-    padding: 32px;
-    padding-bottom: 92px;
-    margin-bottom: 96px; 
-    overflow: hidden;
-}
-
-button.key--clearing:nth-child(17) {
-    grid-column: 1/3;
-}
-
-button {
-    height: 64px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: stretch;
+    gap: 25px;
+    padding: 25px;
+    background: var(--keyboard-background-color);
     border-radius: 10px;
+}
+
+.keys button {
+    flex-grow: 1;
+    flex-direction: row;
+    width: 20%;
+    height: 60px;
+    border-radius: 8px;
+    background: var(--key-default-color);
+    outline: none;
     border: none;
-    background-color: var(--thm1-key-numb);
-    font-size: 32px;
-    line-height: 36px;
-    box-shadow: inset 0px -4px 0px var(--thm1-key-numb-sh);
-    letter-spacing: -0.5333333611488342px;
+    box-shadow: 0 5px 0 var(--key-default-shadow-color);
+    color: var(--key-default-text-color);
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 50px;
     cursor: pointer;
+    text-transform: uppercase;
 }
 
-button:hover {
-    background-color: var(--thm1-key-numb-h);
+.keys button:active {
+    box-shadow: none !important;
+    transform: translateY(5px);
 }
 
-button.key--clearing {
-    color: var(--thm1-txt-white);
-    background-color: var(--thm1-key-clear);
-    box-shadow: inset 0px -4px 0px var(--thm1-key-clear-sh);
+.keys button:hover {
+    background: var(--key-default-hover-color);
 }
 
-button.key--clearing:hover {
-    background-color: var(--thm1-key-clear-h);
+.keys button.long {
+    flex-grow: 2;
+    width: 45%;
 }
 
-button.key--equal {
-    color: var(--thm1-txt-white);
-    background-color: var(--thm1-key-equal);
-    box-shadow: inset 0px -4px 0px var(--thm1-key-equal-sh);
-    grid-column: 3/5;
+.keys button.accent {
+    background: var(--key-accent-color);
+    color: var(--key-accent-text-color);
+    box-shadow: 0 5px 0 var(--key-accent-shadow-color);
 }
 
-button.key--equal:hover {
-    background-color: var(--thm1-key-equal-h);
+.keys button.accent:hover {
+    background: var(--key-accent-hover-color);
+}
+
+.keys button.equal {
+    background: var(--key-equal-color);
+    color: var(--key-equal-text-color);
+    box-shadow: 0 5px 0 var(--key-equal-shadow-color);
+}
+
+.keys button.equal:hover {
+    background: var(--key-equal-hover-color);
 }
 
