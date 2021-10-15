@@ -45,7 +45,6 @@ body {
     margin-right: 1%;
 }
 
-
 .title {
     height: 100%;
     margin: auto 0;
@@ -82,9 +81,9 @@ body {
     cursor: pointer;
   }
 
-  .slider::-webkit-slider-thumb:hover {
-      background: var(--key-equal-hover-color);
-  }
+.slider::-webkit-slider-thumb:hover {
+    background: var(--key-equal-hover-color);
+}
 
 .calculator {
     display: block;
@@ -105,7 +104,7 @@ body {
 }
 
 .display {
-    width: 540px;
+    max-width: 540px;
     height: 128px;
     line-height: 128px;
     background: var(--display-color);
@@ -186,20 +185,20 @@ body {
     background: var(--key-equal-hover-color);
 }
 
+/*moblie version and tablet*/
 @media only screen and (max-width:550px) {
-    /*moblie version and tablet*/
 
     .calculator {
         margin: 5%;
     }
 }
 
-
-
 @media only screen and (max-width: 485px) {
 
     .calculator{
+        margin: auto;
         max-width: 327px;
+        
     }
 
     .keys button {
@@ -229,6 +228,11 @@ body {
 }
 
 @media only screen and (max-width: 350px) {
+
+    .calculator {
+        margin: 5%;
+    }
+
     .keys button {
         min-height: 54px;
         min-width: 50px;
