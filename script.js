@@ -1,10 +1,7 @@
-// All button elements
+//----------------------------cal--------------------------------
 const buttons = document.querySelectorAll('.keys button')
-// The display element
 const display = document.getElementById('display')
-// Theme checkboxes
 const themeSwitches = document.querySelectorAll('input[name=slider]');
-// An array containing: 1st value, operation, and 2nd value
 let values = [];
 
 
@@ -21,20 +18,15 @@ function round(num) {
 
 // Run the operation (i.e., 1st number + 2nd number)
 function runOperation() {
-  // If there are no 3 values, ignore the key press
   if (values.length !== 3) {
     return;
   }
   switch (values[1]) {
-    // In case of + sum the numbers
     case '+':
-      // Save the rounded sum as a 1st number in values
-      // But convert the number to string
       values = [
         round(Number(values[0]) + Number(values[2])) + ''
       ];
       break;
-    // Same for each operation
     case '-':
       values = [
         round(Number(values[0]) - Number(values[2])) + ''
@@ -58,13 +50,9 @@ function runOperation() {
 // Append a digit or a decimal point
 function append(value) {
   const index = (values.length === 3 || values.length === 2) ? 2 : 0;
-  
-  // Allow up to 10 charactetrs/digits
   if (values[index] && values[index].length >= 10) {
-    // Ignore the keypress if there are already 10 characters
     return;
   }
-
   values[index] = values[index] || '';
   if (value !== '.' || !values[index].includes('.')) {
     values[index] += value;
@@ -78,13 +66,11 @@ function appendOperator(value) {
     values[1] = value;
     updateDisplay();
   }
-
   else if (values.length === 3) {
     runOperation();
     values[1] = value;
     updateDisplay();
   }
- 
   else if (values.length === 2) {
     values[1] = value;
     updateDisplay();
@@ -93,7 +79,6 @@ function appendOperator(value) {
 
 // Delete
 function deleteLastCharacter() {
- 
   if (values.length === 1) {
     values[0] = values[0].slice(0, -1);
   } else if (values.length === 3) {
@@ -102,13 +87,13 @@ function deleteLastCharacter() {
   updateDisplay();
 }
 
-// Reset everything
+// Reset
 function reset() {
-  values = []; 
-  updateDisplay(); 
+  values = [];
+  updateDisplay();
 }
 
-// receives the button value
+
 function handleClick(value) {
   switch (value) {
     case 'reset': 
@@ -131,18 +116,18 @@ function handleClick(value) {
   }
 }
 
-// Listener 
+// Listener
 buttons.forEach(button => {
   button.addEventListener('click', (e) => {
     handleClick(e.target.value);
   });
 });
 
-// -----------------------------THEME SWITCHER------------------------
+//----------------------Theme switcher---------------------------
 
 const root = document.documentElement.style;
 
-//theme 1
+// Theme 1
 function setTheme1() {
   root.setProperty('--background-color', '#3b4764');
   root.setProperty('--display-color', '#181f32');
@@ -162,7 +147,7 @@ function setTheme1() {
   root.setProperty('--key-equal-text-color', '#ffffff');
 }
 
-//theme 2
+// Theme 2
 function setTheme2() {
   root.setProperty('--background-color', '#e6e6e6');
   root.setProperty('--display-color', '#eeeeee');
@@ -182,7 +167,7 @@ function setTheme2() {
   root.setProperty('--key-equal-text-color', '#ffffff');
 }
 
-//theme 3
+// Theme 3
 function setTheme3() {
   root.setProperty('--background-color', '#18052a');
   root.setProperty('--display-color', '#1e0835');
@@ -196,13 +181,12 @@ function setTheme3() {
   root.setProperty('--key-accent-shadow-color', '#bf15f3');
   root.setProperty('--key-accent-hover-color', ' #8631AF');
   root.setProperty('--key-accent-text-color', '#ffffff');
-  root.setProperty('--key-equal-color', '#00decf');
+  root.setProperty('--key-equal-color','#00decf');
   root.setProperty('--key-equal-shadow-color', '#6df9f0');
   root.setProperty('--key-equal-hover-color', '#93FFF8');
   root.setProperty('--key-equal-text-color', '#043c3c');
 }
 
-// Update CSS variables on theme switch
 function onThemeSwitch(event) {
   console.log(event.target.value)
   switch (event.target.value) {
@@ -217,6 +201,7 @@ function onThemeSwitch(event) {
   }
 }
 
+//Listener
 themeSwitches.forEach(checkbox => {
   checkbox.addEventListener('change', onThemeSwitch);
 })
